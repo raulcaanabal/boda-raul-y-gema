@@ -212,6 +212,10 @@ a {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     }
+   
+   .nav-links a::before {
+        display: none;
+   }
 }
 
 /* =========================================
