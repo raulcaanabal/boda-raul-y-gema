@@ -881,41 +881,76 @@ if (rsvpForm) {
     });
 }
 
-// Menú móvil
-const navToggle = document.getElementById("nav-toggle");
-const navLinks = document.getElementById("nav-links");
+/* =========================================
+   MENÚ MÓVIL
+========================================= */
 
-if (navToggle && navLinks) {
+document.addEventListener("DOMContentLoaded", function () {
 
-    navToggle.addEventListener("click", function () {
+    const navToggle =
+        document.getElementById("nav-toggle");
 
-        const isOpen = navLinks.classList.toggle("active");
+    const navLinks =
+        document.getElementById("nav-links");
 
-        navToggle.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-        );
 
-        navToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Cerrar menú" : "Abrir menú"
+    if (!navToggle || !navLinks) {
+        return;
+    }
+
+
+    navToggle.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                navLinks.classList.toggle("active");
+
+
+            navToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+
+            navToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Cerrar menú"
+                    : "Abrir menú"
+            );
+
+        }
+    );
+
+
+    // Cerrar el menú al seleccionar una opción
+
+    const links =
+        navLinks.querySelectorAll("a");
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.remove("active");
+
+                navToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                navToggle.setAttribute(
+                    "aria-label",
+                    "Abrir menú"
+                );
+
+            }
         );
 
     });
 
-    // Cerrar el menú al pulsar una opción
-    navLinks.querySelectorAll("a").forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-            navLinks.classList.remove("active");
-
-            navToggle.setAttribute("aria-expanded", "false");
-
-            navToggle.setAttribute("aria-label", "Abrir menú");
-
-        });
-
-    });
-
-}
+});
