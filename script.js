@@ -880,3 +880,42 @@ if (rsvpForm) {
         });
     });
 }
+
+// Menú móvil
+const navToggle = document.getElementById("nav-toggle");
+const navLinks = document.getElementById("nav-links");
+
+if (navToggle && navLinks) {
+
+    navToggle.addEventListener("click", function () {
+
+        const isOpen = navLinks.classList.toggle("active");
+
+        navToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        navToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Cerrar menú" : "Abrir menú"
+        );
+
+    });
+
+    // Cerrar el menú al pulsar una opción
+    navLinks.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("active");
+
+            navToggle.setAttribute("aria-expanded", "false");
+
+            navToggle.setAttribute("aria-label", "Abrir menú");
+
+        });
+
+    });
+
+}
