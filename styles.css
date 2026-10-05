@@ -203,9 +203,14 @@ a {
     }
 
     .nav-links a {
-        width: 100%;
-        padding: 14px 20px;
-        text-align: center;
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    text-align: center;
+    color: var(--green-dark);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     }
 }
 
