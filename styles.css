@@ -1804,3 +1804,8 @@ footer > span {
     }
 
 }
+
+/* Reducir espacio antes de Nuestros primeros pasos */
+#primeros-pasos {
+    padding-top: 35px;
+}
