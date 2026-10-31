@@ -1594,3 +1594,213 @@ footer > span {
     font-size: 0.8rem;
     letter-spacing: 0.12em;
 }
+
+/* =========================================
+   NUESTROS PRIMEROS PASOS
+========================================= */
+
+.primeros-pasos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.primeros-pasos-content {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.primeros-pasos-text {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--green-dark);
+    margin-bottom: 40px;
+}
+
+.cuenta-card {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 35px 25px;
+    border: 1px solid rgba(38, 59, 50, 0.15);
+    background: rgba(247, 244, 236, 0.5);
+}
+
+.cuenta-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.cuenta-titulares,
+.cuenta-iban {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.copy-iban {
+    margin-top: 15px;
+    padding: 13px 25px;
+    border: 1px solid var(--green-dark);
+    background: transparent;
+    color: var(--green-dark);
+    font-family: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-iban:hover {
+    background: var(--green-dark);
+    color: white;
+}
+
+/* =========================================
+   CARRUSEL DE FOTOGRAFÍAS
+========================================= */
+
+.fotos-carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 450px;
+    margin: 0 auto 45px;
+}
+
+.fotos-ventana {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.fotos-ventana::-webkit-scrollbar {
+    display: none;
+}
+
+.fotos-ventana img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: center;
+}
+
+.carrusel-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(247, 244, 236, 0.9);
+    color: var(--green-dark);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrusel-anterior {
+    left: 12px;
+}
+
+.carrusel-siguiente {
+    right: 12px;
+}
+
+.carrusel-flecha:hover {
+    background: white;
+}
+
+@media (max-width: 768px) {
+
+    .fotos-carrusel {
+        height: 260px;
+        margin-bottom: 35px;
+    }
+
+    .carrusel-flecha {
+        width: 34px;
+        height: 34px;
+    }
+
+}
+
+/* =========================================
+   NUESTRA HISTORIA
+========================================= */
+
+.historia-inicio {
+    padding: 90px 8%;
+}
+
+.historia-contenido {
+    max-width: 1150px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 65px;
+}
+
+/* Carrusel */
+
+.historia-contenido .fotos-carrusel {
+    width: 100%;
+    max-width: none;
+    height: 420px;
+    margin: 0;
+}
+
+/* Texto */
+
+.historia-texto {
+    text-align: center;
+}
+
+.historia-texto h2 {
+    margin-bottom: 25px;
+}
+
+.historia-texto p:not(.eyebrow):not(.historia-firma) {
+    line-height: 1.9;
+    color: var(--green-dark);
+}
+
+.historia-firma {
+    margin-top: 30px;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--green-dark);
+}
+
+/* Móvil */
+
+@media (max-width: 768px) {
+
+    .historia-inicio {
+        padding: 60px 6%;
+    }
+
+    .historia-contenido {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .historia-contenido .fotos-carrusel {
+        height: 300px;
+    }
+
+}

@@ -809,7 +809,7 @@ const GOOGLE_SCRIPT_URL =
 const rsvpForm = document.getElementById("rsvp-form");
 
 if (rsvpForm) {
-    
+
     // Evitar que la tecla Enter envíe el formulario antes del último paso
     rsvpForm.addEventListener("keydown", function (event) {
         if (event.key === "Enter" && event.target.tagName !== "TEXTAREA") {
@@ -950,6 +950,82 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
         );
+
+    });
+
+});
+
+/* =========================================
+   CARRUSEL DE FOTOGRAFÍAS
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const ventana = document.getElementById("fotos-ventana");
+
+    const anterior = document.querySelector(".carrusel-anterior");
+
+    const siguiente = document.querySelector(".carrusel-siguiente");
+
+    if (!ventana || !anterior || !siguiente) {
+        return;
+    }
+
+    anterior.addEventListener("click", function () {
+        ventana.scrollBy({
+            left: -ventana.clientWidth,
+            behavior: "smooth"
+        });
+    });
+
+    siguiente.addEventListener("click", function () {
+        ventana.scrollBy({
+            left: ventana.clientWidth,
+            behavior: "smooth"
+        });
+    });
+
+});
+
+/* =========================================
+   COPIAR NÚMERO DE CUENTA
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botonCopiar = document.querySelector(".copy-iban");
+    const ibanElemento = document.getElementById("iban");
+
+    if (!botonCopiar || !ibanElemento) {
+        return;
+    }
+
+    botonCopiar.addEventListener("click", async function () {
+
+        const iban = ibanElemento.textContent
+            .trim()
+            .replace(/\s/g, "");
+
+        if (!iban || iban === "PENDIENTE") {
+            alert("Todavía no se ha añadido el número de cuenta.");
+            return;
+        }
+
+        try {
+
+            await navigator.clipboard.writeText(iban);
+
+            botonCopiar.textContent = "¡Número de cuenta copiado!";
+
+            setTimeout(function () {
+                botonCopiar.textContent = "Copiar número de cuenta";
+            }, 2500);
+
+        } catch (error) {
+
+            alert("No se ha podido copiar el número de cuenta. Puedes seleccionarlo y copiarlo manualmente.");
+
+        }
 
     });
 
