@@ -922,13 +922,6 @@ footer span {
     }
 
 
-    .nav-links a {
-
-        font-size: 0;
-
-    }
-
-
     .nav-links a::before {
 
         font-size: 1rem;
