@@ -203,20 +203,28 @@ a {
     }
 
     .nav-links a {
-    display: block;
-    width: 100%;
-    padding: 14px 20px;
-    text-align: center;
-    color: var(--green-dark);
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+        display: block;
+        width: 100%;
+        padding: 14px 20px;
+        text-align: center;
+        color: var(--green-dark);
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        visibility: visible;
+        opacity: 1;
+        text-indent: 0;
     }
-   
-   .nav-links a::before {
+
+    /* Ocultar iconos y mostrar los nombres */
+    .nav-links a::before,
+    .nav-links a::after {
         display: none;
-   }
+        content: none;
+    }
+
 }
+
 
 /* =========================================
    PORTADA
@@ -1582,7 +1590,7 @@ footer {
 
 footer > p {
     margin: 0;
-    font-family: var(--font-serif);
+    font-family: Arial, sans-serif;
     font-size: 2rem;
     font-weight: 500;
 }
